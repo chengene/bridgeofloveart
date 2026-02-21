@@ -1,127 +1,167 @@
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 /* Animated Gradient Background */
 body{
-    min-height: 100vh;
-    background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fddb92, #d4fc79);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(-45deg,#fbc2eb,#a6c1ee,#fddb92,#d4fc79);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
 }
 
-/* Background animation */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-/* Main Contact Card */
+/* Contact Card  */
 .contact-container{
-    width: 90%;
-    max-width: 750px;
-    padding: 40px;
-    border-radius: 25px;
+    width:90%;
+    max-width:750px;
+    padding:45px 40px;
+    border-radius:25px;
 
-    background: rgba(255,255,255,0.35);
-    backdrop-filter: blur(20px);
+    background:rgba(255,255,255,0.35);
+    backdrop-filter:blur(20px);
 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    text-align: center;
+    box-shadow:0 20px 45px rgba(0,0,0,0.15);
+    text-align:center;
 
-    animation: fadeIn 1s ease-in-out;
+    animation:fadeIn 0.9s ease;
 }
 
-/* Fade animation */
 @keyframes fadeIn{
     from{
-        opacity: 0;
-        transform: translateY(30px);
+        opacity:0;
+        transform:translateY(30px);
     }
     to{
-        opacity: 1;
-        transform: translateY(0);
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-/* Headings */
-.contact-heading,
-.example-heading{
-    font-size: 2rem;
-    margin-bottom: 20px;
+/* Header */
+.contact-header h1{
+    font-size:2.2rem;
+    margin-bottom:10px;
 
-    background: linear-gradient(45deg, #ff6ec4, #7873f5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background:linear-gradient(45deg,#ff6ec4,#7873f5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    color:#333;
+    font-weight:500;
+    margin-bottom:30px;
+    opacity:0.85;
+}
+
+/* Buttons (Reusable) */
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    margin:10px 8px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    color:white;
+    transition:all 0.35s ease;
 }
 
 /* Instagram Button */
-.instagram{
-    display: inline-block;
-    margin: 20px 0;
-    padding: 14px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    color: white;
-
-    background: linear-gradient(45deg, #ff6ec4, #7873f5);
-    transition: 0.4s;
+.instagram-btn{
+    background:linear-gradient(45deg,#ff6ec4,#7873f5);
 }
 
-.instagram:hover{
-    transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+/* Email Button */
+.email-btn{
+    background:linear-gradient(45deg,#36d1dc,#5b86e5);
 }
 
-/* Info text */
-.jiya{
-    margin-bottom: 25px;
-    font-weight: 500;
-    color: #333;
+/* Button Hover */
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
 }
 
-/* Questions container */
+/* Response text */
+.response-time{
+    margin-top:15px;
+    color:#333;
+    font-weight:500;
+    opacity:0.8;
+}
+
+/* Example Questions */
+.example-section{
+    margin-top:35px;
+}
+
+.example-section h2{
+    font-size:1.8rem;
+    margin-bottom:20px;
+
+    background:linear-gradient(45deg,#ff6ec4,#7873f5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Question List */
 .questions{
-    margin-top: 15px;
+    list-style:none;
 }
 
-/* Question cards */
-.questions p{
-    margin: 12px 0;
-    padding: 12px;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-    font-weight: 500;
+.questions li{
+    margin:12px 0;
+    padding:14px;
+    border-radius:15px;
+
+    background:rgba(255,255,255,0.5);
+    backdrop-filter:blur(10px);
+
+    font-weight:500;
+    transition:all 0.3s ease;
 }
 
-/* Hover effect */
-.questions p:hover{
-    transform: translateY(-5px);
-    background: linear-gradient(45deg, #ff6ec4, #7873f5);
-    color: white;
+/* Soft hover (professional feel) */
+.questions li:hover{
+    transform:translateY(-4px);
+    background:linear-gradient(45deg,#ff6ec4,#7873f5);
+    color:white;
 }
 
 /* Responsive */
 @media(max-width:768px){
+
     .contact-container{
-        padding: 25px;
+        padding:30px 22px;
     }
 
-    .contact-heading,
-    .example-heading{
-        font-size: 1.5rem;
+    .contact-header h1{
+        font-size:1.7rem;
+    }
+
+    .example-section h2{
+        font-size:1.5rem;
+    }
+
+    .btn{
+        width:100%;
+        display:block;
+        margin:12px 0;
     }
 }
