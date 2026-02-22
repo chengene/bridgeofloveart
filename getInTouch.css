@@ -1,0 +1,137 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#f6f7fb,#e8f0ff);
+    color:#333;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.header h1{
+    font-size:40px;
+    font-weight:600;
+    color:#2c3e50;
+}
+
+.header p{
+    color:#666;
+    margin-top:10px;
+}
+
+/* MAIN CONTAINER */
+.contact-container{
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    display:flex;
+    flex-wrap:wrap;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+/* LEFT SIDE */
+.contact-info{
+    flex:1;
+    padding:40px;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    color:white;
+}
+
+.contact-info h2{
+    margin-bottom:15px;
+}
+
+.contact-info p{
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.info-item{
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* SOCIAL ICONS */
+.social-links{
+    margin-top:20px;
+}
+
+.social-links a{
+    color:white;
+    font-size:30px;
+    margin-right:25px;
+    transition:0.3s;
+}
+
+.social-links a:hover{
+    transform:scale(1.2);
+}
+
+/* FORM SIDE */
+.contact-form{
+    flex:1;
+    padding:40px;
+}
+
+.contact-form h2{
+    margin-bottom:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#4facfe;
+}
+
+.contact-form button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#ff4b7d,#ff7eb3);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .contact-container{
+        flex-direction:column;
+    }
+}
