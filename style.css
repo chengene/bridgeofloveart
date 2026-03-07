@@ -1287,3 +1287,40 @@ header h1 {
   background: rgba(180,140,240,0.15);
   color: #4a3080;
 }
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  color: #4a3080;
+}
+
+.hero h2 {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: #7c5cbf;
+}
+
+.hero p {
+  margin-top: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
