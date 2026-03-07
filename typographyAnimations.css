@@ -1,0 +1,171 @@
+/* ==========================================
+   TYPOGRAPHY ANIMATIONS - Cinematic Motion
+   ========================================== */
+
+/* FADE-IN & SLIDE-UP ANIMATIONS */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* SLIDE-UP ANIMATION */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* SCALE-IN ANIMATION */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* LETTER SPACING PULSE ON HOVER */
+@keyframes letterSpacingPulse {
+  from {
+    letter-spacing: normal;
+  }
+  to {
+    letter-spacing: 2px;
+  }
+}
+
+/* UNDERLINE REVEAL FROM LEFT */
+@keyframes underlineReveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   REUSABLE ANIMATION CLASSES
+   ======================================== */
+
+/* Primary heading animation - fade in with slide up */
+.anim-heading {
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Subheading animation - slightly faster */
+.anim-subheading {
+  animation: fadeInSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Body text animation - subtle fade */
+.anim-text {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+/* Container for staggered children */
+.anim-stagger-container {
+  --stagger-delay: 0.1s;
+}
+
+/* Staggered child animation */
+.anim-stagger-container > * {
+  animation: fadeInSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-stagger-container > :nth-child(1) { animation-delay: var(--stagger-delay) * 1; }
+.anim-stagger-container > :nth-child(2) { animation-delay: var(--stagger-delay) * 2; }
+.anim-stagger-container > :nth-child(3) { animation-delay: var(--stagger-delay) * 3; }
+.anim-stagger-container > :nth-child(4) { animation-delay: var(--stagger-delay) * 4; }
+.anim-stagger-container > :nth-child(5) { animation-delay: var(--stagger-delay) * 5; }
+.anim-stagger-container > :nth-child(6) { animation-delay: var(--stagger-delay) * 6; }
+
+/* Image animation - scale in */
+.anim-image {
+  animation: scaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Button animation - scale in with slight delay */
+.anim-button {
+  animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* ========================================
+   HOVER INTERACTIVE EFFECTS
+   ======================================== */
+
+/* Heading hover effect - letter spacing pulse */
+.anim-heading:hover,
+.anim-subheading:hover {
+  animation: letterSpacingPulse 0.4s ease-out forwards;
+}
+
+/* ========================================
+   ACCESSIBILITY - RESPECT USER PREFERENCES
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .anim-heading,
+  .anim-subheading,
+  .anim-text {
+    animation-duration: 0.6s;
+  }
+
+  .anim-stagger-container {
+    --stagger-delay: 0.08s;
+  }
+
+  .anim-button {
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+  }
+}
+
+@media (max-width: 480px) {
+  .anim-heading,
+  .anim-subheading {
+    animation-duration: 0.5s;
+  }
+
+  .anim-stagger-container {
+    --stagger-delay: 0.06s;
+  }
+}
