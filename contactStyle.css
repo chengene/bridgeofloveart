@@ -1,19 +1,13 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+ 
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
 
 /* Animated Gradient Background */
 body{
     min-height:100vh;
     display:flex;
-    justify-content:center;
-    align-items:center;
+    flex-direction: column;
 
     background:linear-gradient(-45deg,#fbc2eb,#a6c1ee,#fddb92,#d4fc79);
     background-size:400% 400%;
@@ -28,7 +22,8 @@ body{
 
 /* Contact Card  */
 .contact-container{
-    width:90%;
+    margin: auto;
+    width:100%;
     max-width:750px;
     padding:45px 40px;
     border-radius:25px;
