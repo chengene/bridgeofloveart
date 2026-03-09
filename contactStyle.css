@@ -35,6 +35,7 @@ body{
     text-align:center;
 
     animation:fadeIn 0.9s ease;
+    margin-bottom: 50px;
 }
 
 @keyframes fadeIn{
