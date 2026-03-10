@@ -24,6 +24,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <div class="floating-orb floating-orb-2"></div>
     <div class="floating-orb floating-orb-3"></div>
 
+    <div id="navbar"></div>
+
     <!-- NAVBAR TITLE -->
     <header class="header">
         <h1 class="anim-heading">Get In Touch 🎨</h1>
@@ -95,9 +97,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
     </section>
 
-    <footer>
-        <p>© 2026 Jiya The Coolartist | All Rights Reserved</p>
-    </footer>
+    <div id="footer"></div>
+
+    <script>
+      fetch("components/navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
+    <script>
+      fetch("components/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
 
     <script src="getInTouch.js"></script>
     <script src="3d-parallax.js"></script>

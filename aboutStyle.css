@@ -41,6 +41,7 @@ body{
     text-align: center;
 
     animation: fadeIn 1.2s ease-in-out;
+    margin-bottom: 50px;
 }
 
 /* Smooth fade animation */
