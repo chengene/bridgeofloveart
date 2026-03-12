@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jiya The Cool Artist</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aboutStyle.css">
     <link rel="stylesheet" href="../css/typographyAnimations.css">
     <link rel="stylesheet" href="../css/3d-effects.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Jiya The Cool Artist</title>
 </head>
 <body>
     <div class="floating-orb floating-orb-1"></div>
@@ -16,32 +16,106 @@
 
     <div id="navbar"></div>
 
-    <div id="about-container">
+    <main class="about-page">
 
-        <h1 class="main-heading anim-heading">According to ChatGPT...</h1>
-
-        <div class="about-content">
-            <p class="about-text anim-text">
-                <span class="highlight">jiya_the_coolartist</span> is a digital artist known for creating intricate 
-                and engaging art videos on YouTube. Their work often includes a blend 
-                of traditional and digital art forms, and they are particularly noted
-                for making art videos set to rap music.
-            </p>
-
-            <p class="about-text anim-text">
-                One of the unique aspects of their content is creating a high volume 
-                of small drawings in a single day.
-            </p>
-
-            <div class="image-container anim-image">
-                <img class="artist-image" src="../assets/images/image.jpg" alt="Jiya The Cool Artist">
+        <!-- Hero / Profile -->
+        <section class="about-hero anim-heading">
+            <div class="hero-image-wrap">
+                <img class="hero-portrait" src="../assets/images/jiya.jpg" alt="Jiya The Cool Artist">
+                <div class="hero-image-ring"></div>
             </div>
-        </div>
+            <div class="hero-text">
+                <p class="hero-label">&#10022; Artist &amp; Content Creator</p>
+                <h1 class="hero-name">Jiya<br><span class="hero-name-accent">The Cool Artist</span></h1>
+                <p class="hero-handle">@jiya_the_coolartist</p>
+                <p class="hero-tagline">
+                    Blending traditional strokes with digital vibes &mdash;<br>
+                    one drawing at a time.
+                </p>
+            </div>
+        </section>
 
-    </div>
+        <!-- Bio -->
+        <section class="about-section anim-subheading">
+            <div class="section-card">
+                <span class="section-icon">&#127912;</span>
+                <h2 class="section-title">Who Am I?</h2>
+                <p class="section-body">
+                    <strong>Jiya the Coolartist</strong> is a digital and traditional artist known for creating
+                    intricate and engaging art videos on YouTube. Her work seamlessly blends traditional mediums
+                    with digital art forms, and she is especially celebrated for producing vibrant art videos
+                    set to rap music &mdash; making every creation a full sensory experience.
+                </p>
+                <p class="section-body">
+                    One of Jiya's most unique traits is her ability to create a high volume of small, detailed
+                    drawings in a single day &mdash; showcasing both dedication and creative stamina that inspires
+                    artists of all skill levels.
+                </p>
+                <blockquote class="about-quote">
+                    &ldquo;Art is not what you see, but what you make others see.&rdquo;
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Art Styles -->
+        <section class="about-section anim-text">
+            <div class="section-card">
+                <span class="section-icon">&#9998;&#65039;</span>
+                <h2 class="section-title">Art Styles I Explore</h2>
+                <p class="section-body">
+                    From delicate pencil work to bold oil pastels, here are the mediums and styles
+                    that define this gallery:
+                </p>
+                <div class="style-tags">
+                    <span class="style-tag tag-mandala">&#127800; Mandala Art</span>
+                    <span class="style-tag tag-oilpastel">&#127912; Oil Pastel</span>
+                    <span class="style-tag tag-painting">&#128396; Painting</span>
+                    <span class="style-tag tag-pencilcolor">&#128397; Pencil Color</span>
+                    <span class="style-tag tag-pencilshading">&#9999;&#65039; Pencil Shading</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="about-section anim-text">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Art Styles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Artworks Created</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">&#8734;</span>
+                    <span class="stat-label">Creative Ideas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About The Project -->
+        <section class="about-section anim-text">
+            <div class="section-card project-card">
+                <span class="section-icon">&#128187;</span>
+                <h2 class="section-title">About This Project</h2>
+                <p class="section-body">
+                    This portfolio website &mdash; <strong>Jiya The Coolartist</strong> &mdash; serves as a digital gallery
+                    and learning platform built to showcase different art styles and provide helpful resources
+                    for beginners stepping into the world of art.
+                </p>
+                <ul class="project-features">
+                    <li>&#128444;&#65039; Curated art galleries across five unique styles</li>
+                    <li>&#128250; YouTube video integration for process walkthroughs</li>
+                    <li>&#128140; A &ldquo;Get in Touch&rdquo; section for commissions &amp; collaborations</li>
+                    <li>&#127891; Beginner-friendly layout to inspire new artists</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
 
     <div class="circle" id="customCursor"></div>
-
     <div id="footer"></div>
 
     <script>
@@ -61,7 +135,6 @@
     </script>
 
     <script src="../js/CustomCursor.js"></script>
-
     <script src="../js/3d-parallax.js"></script>
 </body>
 </html>
