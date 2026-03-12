@@ -203,33 +203,49 @@ Just clone and open in a browser! 🚀
 
 ## 📁 Project Structure
 
-```plaintext
-ArtPortfolio-jtc/
+```
+ARTPORTFOLIO-JTC
 │
-├── assets/                       # Media resources
-│   └── images/                   # Art gallery images (80+ artworks)
+├── .git/                 → Git version control data
+├── .github/              → GitHub workflows, templates, configs
 │
-├── index.html                    # Main landing page with hero & navigation
-├── about.html                    # Artist biography and journey
-├── contact.html                  # Contact page with social links
-├── getInTouch.html               # Direct contact form page
-├── youtube.html                  # Art studio with tutorial videos
+├── assets/               → Static files and media
+│   └── images/           → All image assets used in the site
 │
-├── mandalaart.html               # Mandala art gallery
-├── oilpastel.html                # Oil pastel artwork showcase
-├── painting.html                 # Watercolor paintings gallery
-├── pencilcolor.html              # Colored pencil art portfolio
-├── pencilshading.html            # Pencil shading gallery
+├── components/           → Reusable UI components
+│   ├── footer.html       → Site footer
+│   └── navbar.html       → Site navigation bar
 │
-├── style.css                     # Main stylesheet (global styles)
-├── aboutStyle.css                # About page specific styles
-├── contactStyle.css              # Contact page styling
-├── getInTouch.css                # Get in touch page styles
+├── css/                  → All stylesheets
+│   ├── 3d-effects.css            → 3D visual effects
+│   ├── aboutStyle.css            → About page styles
+│   ├── contactStyle.css          → Contact page styles
+│   ├── getInTouch.css            → Get In Touch page styles
+│   ├── style.css                 → Global styles
+│   └── typographyAnimations.css  → Text & typography animations
 │
-├── contact.jfif                  # Contact page visual asset
-├── Contributing.md               # Contribution guidelines (JWOC ready)
-├── LICENSE                       # MIT License
-└── README.md                     # Project documentation (you are here!)
+├── js/                   → JavaScript files
+│   ├── 3d-parallax.js     → Parallax and depth effects
+│   ├── CustomCursor.js    → Custom cursor behavior
+│   └── getInTouch.js      → Get In Touch page scripts
+│
+├── pages/                → All website pages
+│   ├── paintings/        → Painting gallery pages
+│   │   ├── mandalaart.html
+│   │   ├── oilpastel.html
+│   │   ├── painting.html
+│   │   ├── pencilcolor.html
+│   │   └── pencilshading.html
+│   │
+│   ├── about.html        → About page
+│   ├── contact.html      → Contact page
+│   ├── getInTouch.html   → Get In Touch page
+│   └── youtube.html      → YouTube showcase page
+│
+├── Contributing.md       → Contribution guidelines
+├── index.html            → Main landing page
+├── LICENSE               → Open-source license
+└── README.md             → Project documentation
 ```
 
 ### File Descriptions
@@ -237,13 +253,26 @@ ArtPortfolio-jtc/
 | File/Folder | Purpose | Key Features |
 |-------------|---------|--------------|
 | `index.html` | Portfolio homepage | Hero section, materials table, art categories |
-| `about.html` | Artist biography | Personal journey, achievements, milestones |
-| `contact.html` | Contact information | Instagram & email links, example questions |
-| `youtube.html` | Art studio/tutorials | Embedded YouTube videos and resources |
-| `getInTouch.html` | Direct contact form | Quick contact action page |
-| `style.css` | Global styles | Responsive design, animations, typography |
-| `assets/images/` | Art gallery | 80+ high-quality artwork images |
-| Art pages (`*.html`) | Individual galleries | Dedicated pages for each art medium |
+| `pages/about.html` | Artist biography | Personal journey, achievements, milestones |
+| `pages/contact.html` | Contact information | Instagram & email links, example questions |
+| `pages/youtube.html` | Art studio & tutorials | Embedded YouTube videos and learning resources |
+| `pages/getInTouch.html` | Direct contact page | Quick contact action and outreach section |
+| `pages/paintings/*.html` | Individual art galleries | Dedicated pages for each art medium and artwork collection |
+| `components/navbar.html` | Reusable navigation bar | Shared header navigation across all pages |
+| `components/footer.html` | Reusable footer | Common footer content across site |
+| `css/style.css` | Global stylesheet | Layout system, responsive design, base typography |
+| `css/aboutStyle.css` | About page styles | Page-specific layout and design |
+| `css/contactStyle.css` | Contact page styles | Contact layout and visual styling |
+| `css/getInTouch.css` | Get In Touch page styles | Form and interaction styling |
+| `css/3d-effects.css` | Visual effects styles | 3D transforms and depth effects |
+| `css/typographyAnimations.css` | Text animations | Animated headings and typography effects |
+| `js/3d-parallax.js` | Parallax effects script | Depth and scroll-based motion effects |
+| `js/CustomCursor.js` | Cursor enhancement script | Custom interactive cursor behavior |
+| `js/getInTouch.js` | Contact interaction script | Page-specific interactive functionality |
+| `assets/images/` | Image assets | Artwork images and visual media used across the site |
+| `Contributing.md` | Contribution guidelines | Rules and standards for contributors |
+| `README.md` | Project documentation | Overview, setup guide, and structure |
+| `LICENSE` | Open-source license | Legal usage and distribution terms |
 
 ![RGB Line Medium](https://github.com/user-attachments/assets/73d1badc-e96a-4a2f-a3ae-eddbacee55b9)
 
