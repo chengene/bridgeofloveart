@@ -23,12 +23,11 @@
 
 /* ── Configuration ─────────────────────────────────────────────────────────── */
 
-const CHANNEL_ID = 'YOUR_CHANNEL_ID_HERE'; // ← Replace with your UCxxxx channel ID
+const CHANNEL_ID = 'UC1x8-hhCnukw437Sx8emtlg'; // Your channel ID
 
 const MAX_VIDEOS = 6;                       // Maximum videos to show at once
 
 const REFRESH_INTERVAL_MS = 30 * 60 * 1000; // Auto-refresh every 30 minutes
-const CHANNEL_ID = 'UC1x8-hhCnukw437Sx8emtlg'; // ← Replace with UCxxxx channel ID
 const FALLBACK_VIDEOS = [
   { id: 'BpiAPcEHvjs', title: 'Creative Art Session',        publishedAt: '2024-03-01' },
   { id: 'fzvKbRzVEbA', title: 'Beautiful Drawing Tutorial',  publishedAt: '2024-02-15' },
@@ -67,6 +66,9 @@ class WatchNowManager {
 
     try {
       const videos = await this._fetchLatestVideos();
+      if (!videos.length) {
+        throw new Error('No valid videos returned from live feed.');
+      }
       this._render(videos);
       this._setStatus('live');
     } catch (err) {
@@ -116,7 +118,12 @@ class WatchNowManager {
 
   /** Renders video cards into the grid container. */
   _render(videos) {
-    if (!this._grid || !videos.length) return;
+    if (!this._grid) return;
+
+    if (!videos.length) {
+      this._grid.innerHTML = '<p class="empty-state">No videos available right now. Please check back soon.</p>';
+      return;
+    }
 
     this._grid.innerHTML = videos
       .map(video => `
