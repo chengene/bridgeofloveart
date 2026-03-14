@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Art Studio | Jiya</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/typographyAnimations.css" />
@@ -19,42 +20,17 @@
     </header>
 
     <section class="container">
-      <h2 class="anim-subheading">🎨 Learn & Create with Jiya</h2>
-
-      <div class="video-grid anim-stagger-container">
-        <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/BpiAPcEHvjs"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-          <p>Creative Art Session</p>
-        </div>
-
-        <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/fzvKbRzVEbA"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-          <p>Beautiful Drawing Tutorial</p>
-        </div>
-
-        <div class="video-card">
-          <iframe
-            src="https://www.youtube.com/embed/LNNT-pLVulg"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-          <p>Mandala Art Creation</p>
-        </div>
+      <!-- Watch Now header with live-update status badge -->
+      <div class="watch-now-header">
+        <h2 class="anim-subheading">🎨 Watch Now</h2>
+        <span id="watchNowStatus" aria-live="polite">Loading…</span>
       </div>
 
+      <!-- Video grid — populated automatically by watchNow.js -->
+      <div id="watchNowGrid" class="video-grid anim-stagger-container"></div>
+
       <div class="youtube-link">
-        <a href="https://www.youtube.com/@jiya_the_coolartist" target="_blank">
+        <a href="https://www.youtube.com/@jiya_the_coolartist" target="_blank" rel="noopener noreferrer">
           ✨ Watch More on YouTube →
         </a>
       </div>
@@ -69,6 +45,7 @@
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
+          window.syncThemeToggle?.();
         });
     </script>
 
@@ -81,7 +58,7 @@
     </script>
 
     <script src="../js/CustomCursor.js"></script>
-    
     <script src="../js/3d-parallax.js"></script>
+    <script src="../js/watchNow.js"></script>
   </body>
 </html>
