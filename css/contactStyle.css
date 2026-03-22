@@ -60,7 +60,7 @@ body{
 }
 
 .subtitle{
-    color:#333;
+    color:var(--text-primary);
     font-weight:500;
     margin-bottom:30px;
     opacity:0.85;
@@ -97,7 +97,7 @@ body{
 /* Response text */
 .response-time{
     margin-top:15px;
-    color:#333;
+    color:var(--text-primary);
     font-weight:500;
     opacity:0.8;
 }
