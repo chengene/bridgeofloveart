@@ -279,18 +279,10 @@ body {
 .nav-center a.active {
   color: var(--nav-link-hover);
   background: var(--nav-link-active-bg);
-}
-
-.nav-center a.active::after {
-  content: '';
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--nav-dot);
+  border-bottom: 3px solid var(--nav-dot);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 /* Nav Right */
@@ -510,6 +502,17 @@ body {
 .mobile-drop a:hover {
   color: var(--nav-link-hover);
   background: rgba(180, 140, 240, 0.08);
+}
+
+.mobile-drop a.active {
+  color: var(--nav-link-hover);
+  background: var(--nav-link-active-bg);
+  font-weight: 600;
+  border-left: 4px solid var(--nav-dot);
+  padding-left: 14px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .mobile-drop a .m-ico { font-size: 1.1rem; }
@@ -1578,6 +1581,17 @@ html[data-theme="dark"] .mobile-drop a {
 
 html[data-theme="dark"] .mobile-drop a:hover {
   background: rgba(166, 132, 230, 0.15);
+}
+
+html[data-theme="dark"] .mobile-drop a.active {
+  color: var(--nav-link-hover);
+  background: var(--nav-link-active-bg);
+  font-weight: 600;
+  border-left: 4px solid var(--nav-dot);
+  padding-left: 14px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 html[data-theme="dark"] .theme-toggle-btn,

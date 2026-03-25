@@ -64,12 +64,35 @@
     <section class="example-section">
         <h2>Example Questions</h2>
 
-        <ul class="questions">
-            <li>How do I start drawing as a beginner?</li>
-            <li>Which colors should I use?</li>
-            <li>Which art medium is best for beginners?</li>
-            <li>How can I improve imagination drawing?</li>
-        </ul>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">How do I start drawing as a beginner?</button>
+                <div class="faq-answer">
+                    <p>Start with basic shapes and simple sketches. Practice drawing circles, squares, and triangles daily. Use a pencil to make light sketches first, then refine them. Don't worry about perfection - focus on understanding proportions and anatomy. Follow tutorials and practice consistently for at least 30 minutes daily.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Which colors should I use?</button>
+                <div class="faq-answer">
+                    <p>For beginners, start with basic primary colors: red, blue, and yellow. You can mix these to create other colors. As you progress, expand to complementary colors and learn color theory. The quality of materials matters less than practice - even basic colors from budget brands work great for learning. Focus on understanding color harmony and contrast.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Which art medium is best for beginners?</button>
+                <div class="faq-answer">
+                    <p>Pencil is the best starting medium because it's cheap, forgiving, and helps you learn fundamentals. Colored pencils are the next step. Once comfortable, try watercolors, acrylics, or oils based on your interest. Oil pastels are also great for expressive work. The "best" medium is the one you enjoy - passion drives improvement!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How can I improve imagination drawing?</button>
+                <div class="faq-answer">
+                    <p>Improve imagination drawing by sketching daily without references. Fill sketchbooks with quick ideas. Study anatomy and proportions to have a mental library. Practice gesture drawing to capture movement. Look at inspiration from other artists and nature. Imagination grows with observation - the more you see and study, the more you can create!</p>
+                </div>
+            </div>
+        </div>
     </section>
 
 </main>
@@ -97,6 +120,26 @@
     <script src="../js/CustomCursor.js"></script>
 
     <script src="../js/3d-parallax.js"></script>
+
+    <script>
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
