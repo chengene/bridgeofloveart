@@ -12,7 +12,7 @@
     <div class="floating-orb floating-orb-1"></div>
     <div class="floating-orb floating-orb-2"></div>
     <div class="floating-orb floating-orb-3"></div>
-    
+    <div id="navbar"></div>
 <header>
   <h1 class="anim-heading">
     Pencil color
@@ -29,6 +29,24 @@
   <div class="gallery-item"><img src="../../assets/images/1720284683220.jpg" alt=""></div>
   
 </div>
+<div id="footer"></div>
+<script>
+      fetch("../../components/navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+          window.syncThemeToggle?.();
+        });
+    </script>
+
+    <script>
+      fetch("../../components/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+          window.syncThemeToggle?.();
+        });
+    </script>
 <script src="../../js/CustomCursor.js"></script>
 <script src="../../js/3d-parallax.js"></script>
 </body>

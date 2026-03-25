@@ -61,6 +61,24 @@
   --table-row-even: rgba(255,255,255,0.5);
 }
 
+:root {
+    --text-primary: #3a1a5c;
+    --card-bg: rgba(255,255,255,0.38);
+}
+
+.dark {
+    --text-primary: #f3e8ff;
+    --card-bg: rgba(40,20,60,0.75);
+}
+
+.section-title {
+    color: var(--text-primary);
+}
+
+.section-card {
+    background: var(--card-bg);
+}
+
 html[data-theme="dark"] {
   --nav-bg: rgba(31, 26, 44, 0.78);
   --nav-border: rgba(163, 134, 220, 0.35);
