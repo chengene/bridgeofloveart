@@ -9,22 +9,60 @@
     <style>
         body { 
             font-family: 'Quicksand', sans-serif; 
-            background: linear-gradient(135deg, #fff5f7 0%, #e0f2fe 100%); 
+            background: linear-gradient(135deg, #fff5f7 0%, #e0f2fe 40%, #fce7d9 70%, #f0e7ff 100%); 
             background-attachment: fixed; 
         }
         @media (min-width: 1024px) {
             body { overflow: hidden; height: 100vh; }
         }
-        .btn-cartoon { transition: all 0.2s ease; box-shadow: 0 5px 0 rgba(0,0,0,0.1); }
+        .btn-cartoon { transition: all 0.3s ease; box-shadow: 0 5px 0 rgba(0,0,0,0.1); }
+        .btn-cartoon:hover { transform: translateY(-2px); box-shadow: 0 8px 0 rgba(0,0,0,0.15); }
         .btn-cartoon:active { transform: translateY(3px); box-shadow: 0 0 0 transparent; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .glass { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: movePattern 20s linear infinite;
+        }
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        .glass > * { position: relative; z-index: 1; }
+        h1, h2 { letter-spacing: -0.02em; }
+        .pulse-gentle {
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body class="flex flex-col">
 
     <nav class="z-50 flex justify-between items-center px-6 py-4 glass sticky top-0">
         <div class="flex items-center gap-2">
-            <span class="text-2xl">🎨</span>
+            <span class="text-2xl float">🎨</span>
             <a href="index.html" class="text-xl font-black text-rose-600 tracking-tighter uppercase">Bridge of Love</a>
         </div>
         <div class="flex space-x-4 md:space-x-8 text-[10px] font-bold text-stone-600 uppercase tracking-widest items-center">
@@ -38,18 +76,18 @@
     <main class="flex-grow flex flex-col justify-center items-center px-4 py-4 max-w-6xl mx-auto w-full">
         
         <div class="text-center mb-6">
-            <h1 class="text-4xl md:text-6xl text-rose-600 font-black leading-tight mb-2">Painting <span class="text-sky-500">Smiles</span></h1>
-            <p class="text-sm md:text-lg text-stone-500 font-bold uppercase tracking-widest italic">Healing hearts, one brushstroke at a time.</p>
+            <h1 class="text-4xl md:text-6xl text-rose-600 font-black leading-tight mb-2 pulse-gentle">Painting <span class="bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 bg-clip-text text-transparent">Smiles</span></h1>
+            <p class="text-sm md:text-lg text-stone-500 font-bold uppercase tracking-widest italic float" style="animation-delay: 0.5s;">✨ Healing hearts, one brushstroke at a time. ✨</p>
         </div>
 
         <div class="flex flex-row gap-4 w-full max-w-2xl mb-8">
             <a href="submit.html" class="flex-1">
-                <button class="w-full py-4 md:py-6 bg-rose-500 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-rose-600 shadow-[0_6px_0_#be123c]">
+                <button class="w-full py-4 md:py-6 bg-gradient-to-r from-violet-500 to-rose-500 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-rose-600 shadow-[0_6px_0_#be123c]">
                     GIVE ART 🖌️
                 </button>
             </a>
             <a href="request.html" class="flex-1">
-                <button class="w-full py-4 md:py-6 bg-sky-400 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-sky-500 shadow-[0_6px_0_#0369a1]">
+                <button class="w-full py-4 md:py-6 bg-gradient-to-r from-cyan-400 to-sky-400 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-sky-500 shadow-[0_6px_0_#0369a1]">
                     GET ART 🧸
                 </button>
             </a>
@@ -57,17 +95,17 @@
 
         <div class="grid md:grid-cols-2 gap-4 w-full">
             
-            <div id="mission" class="glass p-6 rounded-[2rem] border-b-4 border-sky-400">
-                <h2 class="text-xl font-black text-sky-600 mb-2">Our Mission ✨</h2>
+            <div id="mission" class="glass p-6 rounded-[2rem] border-b-4 border-purple-400 bg-gradient-to-br from-purple-50 to-pink-50">
+                <h2 class="text-xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Our Mission ✨</h2>
                 <p class="text-sm text-stone-600 leading-relaxed font-medium">
                     We bridge the gap between artists and pediatric patients. By sharing original paintings, we replace gray hospital walls with colorful windows of hope and love.
                 </p>
             </div>
 
-            <div id="about-me" class="glass p-6 rounded-[2rem] border-b-4 border-rose-400 flex items-start gap-4">
-                <div class="hidden sm:flex w-16 h-16 shrink-0 bg-yellow-100 rounded-2xl items-center justify-center text-3xl border-2 border-white shadow-sm rotate-3">👩‍🎨</div>
+            <div id="about-me" class="glass p-6 rounded-[2rem] border-b-4 border-cyan-400 bg-gradient-to-br from-cyan-50 to-blue-50 flex items-start gap-4">
+                <div class="hidden sm:flex w-16 h-16 shrink-0 bg-gradient-to-br from-yellow-200 to-orange-200 rounded-2xl items-center justify-center text-3xl border-2 border-white shadow-md rotate-3 float" style="animation-delay: 1s;">👩‍🎨</div>
                 <div>
-                    <h2 class="text-xl font-black text-rose-600 mb-1">About the Founder</h2>
+                    <h2 class="text-xl font-black bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-1">About the Founder</h2>
                     <p class="text-xs text-stone-600 leading-relaxed font-medium">
                         I first picked up a brush at **age 4**. As an artist, I founded Bridge of Love Art to combine my lifelong passion for creativity with a deep desire to help children heal through the power of color.
                     </p>
