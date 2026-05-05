@@ -1,187 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emma The Coolartist</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/typographyAnimations.css" />
-    <link rel="stylesheet" href="css/3d-effects.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="floating-orb floating-orb-1"></div>
-    <div class="floating-orb floating-orb-2"></div>
-    <div class="floating-orb floating-orb-3"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge of Love Art | Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background: linear-gradient(135deg, #fff5f7 0%, #e0f2fe 100%); 
+            background-attachment: fixed; 
+        }
+        @media (min-width: 1024px) {
+            body { overflow: hidden; height: 100vh; }
+        }
+        .btn-cartoon { transition: all 0.2s ease; box-shadow: 0 5px 0 rgba(0,0,0,0.1); }
+        .btn-cartoon:active { transform: translateY(3px); box-shadow: 0 0 0 transparent; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); }
+    </style>
+</head>
+<body class="flex flex-col">
 
-    <div id="navbar"></div>
-
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Hi, I'm Emma 👋</h1>
-        <h2>Young Artist & Creative Explorer</h2>
-
-        <p>
-          Welcome to my art portfolio where I share drawing tutorials, creative
-          ideas, and fun art projects for everyone who loves art.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="pages/youtube.html" class="btn-primary">🎨 Explore Art Studio</a>
-          <a
-            href="https://www.youtube.com/@jiya_the_coolartist"
-            target="_blank"
-            class="btn-ghost"
-          >
-            ▶ Watch on YouTube
-          </a>
+    <nav class="z-50 flex justify-between items-center px-6 py-4 glass sticky top-0">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">🎨</span>
+            <a href="index.html" class="text-xl font-black text-rose-600 tracking-tighter uppercase">Bridge of Love</a>
         </div>
-      </div>
-    </section>
+        <div class="flex space-x-4 md:space-x-8 text-[10px] font-bold text-stone-600 uppercase tracking-widest items-center">
+            <a href="gallery.html" class="hover:text-rose-600 transition">Gallery</a>
+            <a href="submit.html" class="hover:text-rose-600 transition">Give Art</a>
+            <a href="request.html" class="hover:text-rose-600 transition">Get Art</a>
+            <a href="#about-me" class="hidden sm:block hover:text-rose-600 transition border-l pl-4 border-stone-300">About Me</a>
+        </div>
+    </nav>
 
-    <main class="container">
-      <section class="art-info black">
-        <h2 class="anim-heading">
-          What kind of art you can learn from Jiya_the_Coolartist?
-        </h2>
-        <ul class="anim-stagger-container">
-          <li>Oil Pastel Painting</li>
-          <li>Watercolor Painting</li>
-          <li>Pencil Shading</li>
-          <li>Freestyle Mandala</li>
-          <li>Doodle</li>
-        </ul>
-
-        <h3 class="anim-subheading">Required Materials</h3>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Art</th>
-                <th>Material</th>
-                <th>Alternative</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="S.No">1</td>
-                <td data-label="Art">Oil Pastel Painting</td>
-                <td data-label="Material">Oil Pastels</td>
-                <td data-label="Alternative">
-                  Crayon or Wax Colors (blend with pressure)
-                </td>
-              </tr>
-              <tr>
-                <td data-label="S.No">2</td>
-                <td data-label="Art">Watercolor Painting</td>
-                <td data-label="Material">Watercolor</td>
-                <td data-label="Alternative">Affordable, easily available</td>
-              </tr>
-              <tr>
-                <td data-label="S.No">3</td>
-                <td data-label="Art">Pencil Shading</td>
-                <td data-label="Material">Shading Pencils</td>
-                <td data-label="Alternative">Simple HB Pencil</td>
-              </tr>
-              <tr>
-                <td data-label="S.No">4</td>
-                <td data-label="Art">Mandala</td>
-                <td data-label="Material">Pilot Black Pen</td>
-                <td data-label="Alternative">Simple Ballpoint or Gel Pen</td>
-              </tr>
-              <tr>
-                <td data-label="S.No">5</td>
-                <td data-label="Art">Doodle</td>
-                <td data-label="Material">Pilot Black Pen</td>
-                <td data-label="Alternative">Simple Ballpoint or Gel Pen</td>
-              </tr>
-            </tbody>
-          </table>
+    <main class="flex-grow flex flex-col justify-center items-center px-4 py-4 max-w-6xl mx-auto w-full">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-4xl md:text-6xl text-rose-600 font-black leading-tight mb-2">Painting <span class="text-sky-500">Smiles</span></h1>
+            <p class="text-sm md:text-lg text-stone-500 font-bold uppercase tracking-widest italic">Healing hearts, one brushstroke at a time.</p>
         </div>
 
-        <p>
-          Learn any of these art styles on
-          <a
-            href="https://www.youtube.com/results?search_query=jiya_the_coolartist"
-            target="_blank"
-            >YouTube (my little artist)</a
-          >
-        </p>
-
-        <h3 class="anim-subheading">Some art references</h3>
-        <div class="art-cards anim-stagger-container">
-          <a class="mandala" href="pages/paintings/mandalaart.html">Mandala Art</a>
-          <a class="pencil" href="pages/paintings/pencilcolor.html">Pencil Color</a>
-          <a class="shading" href="pages/paintings/pencilshading.html">Pencil Shading</a>
-          <a class="oil" href="pages/paintings/oilpastel.html">Oil Pastel</a>
-          <a class="painting" href="pages/paintings/painting.html">Painting</a>
+        <div class="flex flex-row gap-4 w-full max-w-2xl mb-8">
+            <a href="submit.html" class="flex-1">
+                <button class="w-full py-4 md:py-6 bg-rose-500 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-rose-600 shadow-[0_6px_0_#be123c]">
+                    GIVE ART 🖌️
+                </button>
+            </a>
+            <a href="request.html" class="flex-1">
+                <button class="w-full py-4 md:py-6 bg-sky-400 text-white rounded-2xl text-lg font-black btn-cartoon border-2 border-sky-500 shadow-[0_6px_0_#0369a1]">
+                    GET ART 🧸
+                </button>
+            </a>
         </div>
-      </section>
 
-      <section class="journey">
-        <h2 class="anim-heading">Let's know something about her journey</h2>
-        <p>
-          At the age of 15, Emma started "MX TAKATAK" as an artist (Emma The
-          Coolartist). Her first video was uploaded on August 15, 2020, recorded
-          by her brother. Initially, she didn't know how to edit, so she
-          re-recorded it on trending songs.
-          <a
-            href="https://mojapp.in/jiya_the_coolartist/video/1017470723?referrer=U69x0AQ-XYCJH5&source=link"
-            target="_blank"
-            >Watch here</a
-          >.
-        </p>
-        <p>
-          She learned oil pastels after 7 months and explored different colors
-          by watching other artists like Aryan Verma. Her content stands out
-          because she focuses on unique trending video concepts.
-        </p>
-        <p>
-          <mark>Fun Fact:</mark> On 26 January 2017, Emma made 1000 smallest
-          drawings in a single day.
-          <a
-            href="https://www.instagram.com/reel/CZMZMy9FlbG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-            >Watch here</a
-          >.
-        </p>
-        <p>
-          She pays attention to details that many artists miss, for example in
-          her Kedarnath drawing:
-          <a
-            href="https://www.instagram.com/reel/Ct8ahSZIEn1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-            >View Kedarnath Drawing</a
-          >.
-        </p>
-      </section>
+        <div class="grid md:grid-cols-2 gap-4 w-full">
+            
+            <div id="mission" class="glass p-6 rounded-[2rem] border-b-4 border-sky-400">
+                <h2 class="text-xl font-black text-sky-600 mb-2">Our Mission ✨</h2>
+                <p class="text-sm text-stone-600 leading-relaxed font-medium">
+                    We bridge the gap between artists and pediatric patients. By sharing original paintings, we replace gray hospital walls with colorful windows of hope and love.
+                </p>
+            </div>
+
+            <div id="about-me" class="glass p-6 rounded-[2rem] border-b-4 border-rose-400 flex items-start gap-4">
+                <div class="hidden sm:flex w-16 h-16 shrink-0 bg-yellow-100 rounded-2xl items-center justify-center text-3xl border-2 border-white shadow-sm rotate-3">👩‍🎨</div>
+                <div>
+                    <h2 class="text-xl font-black text-rose-600 mb-1">About the Founder</h2>
+                    <p class="text-xs text-stone-600 leading-relaxed font-medium">
+                        I first picked up a brush at **age 4**. As an artist, I founded Bridge of Love Art to combine my lifelong passion for creativity with a deep desire to help children heal through the power of color.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
     </main>
 
-    <div id="footer"></div>
+    <footer class="py-3 text-center glass border-t border-white/50">
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">
+            &copy; 2026 Bridge of Love Art • Hand-Painted & Hand-Coded
+        </p>
+    </footer>
 
-    <div class="circle" id="customCursor"></div>
-
-    <script>
-      fetch("components/navbar.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-          window.syncThemeToggle?.();
-        });
-    </script>
-
-    <script>
-      fetch("components/footer.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
-
-    <script src="js/CustomCursor.js"></script>
-
-    <script src="js/3d-parallax.js"></script> 
-  </body>
+</body>
 </html>
