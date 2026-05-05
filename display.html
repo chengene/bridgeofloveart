@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge of Love Art | Art Detail</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #fff5f7 0%, #fce7d9 15%, #e0f2fe 30%, #f0e7ff 45%, #fef3c7 60%, #ecfdf5 75%, #fef2f2 90%, #f3e8ff 100%); background-attachment: fixed; }
+        @media (min-width: 1024px) { body { overflow: hidden; height: 100vh; } }
+        .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid rgba(255,255,255,0.5); }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <nav class="z-50 flex justify-between items-center px-6 py-4 glass sticky top-0">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">🎨</span>
+            <a href="index.html" class="text-xl font-black text-rose-600 tracking-tighter uppercase">Bridge of Love</a>
+        </div>
+        <div class="flex space-x-4 md:space-x-8 text-[10px] font-bold uppercase tracking-widest items-center">
+            <a href="gallery.html" class="text-purple-600 px-3 py-2 rounded-lg hover:bg-purple-50 transition">Gallery</a>
+            <a href="submit.html" class="text-pink-600 px-3 py-2 rounded-lg hover:bg-pink-50 transition">Give Art</a>
+            <a href="request.html" class="text-cyan-600 px-3 py-2 rounded-lg hover:bg-cyan-50 transition">Get Art</a>
+            <a href="contact.html" class="text-rose-600 px-3 py-2 rounded-lg hover:bg-rose-50 transition">Contact</a>
+            <a href="index.html#about-me" class="text-orange-600 hidden sm:inline-block px-3 py-2 rounded-lg hover:bg-orange-50 transition">About Me</a>
+        </div>
+    </nav>
+    <main class="flex-grow px-6 py-8 max-w-6xl mx-auto w-full">
+        <section class="glass p-8 mb-8">
+            <div class="grid gap-8 lg:grid-cols-[2fr_1fr] items-start">
+                <div>
+                    <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Art Detail View</p>
+                    <h1 class="mt-3 text-4xl font-black text-slate-900">Acrylic Joy</h1>
+                    <p class="mt-4 text-stone-600 text-sm leading-relaxed">A bright, playful painting made by Maya to remind little patients that every day can feel like a sunny day.</p>
+                </div>
+                <a href="gallery.html" class="inline-flex items-center justify-center px-4 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">Back to Gallery</a>
+            </div>
+        </section>
+        <section class="glass p-8 rounded-[2rem] grid gap-8 lg:grid-cols-[1.6fr_1fr] items-start">
+            <div class="space-y-6">
+                <div class="h-96 rounded-[2rem] bg-gradient-to-br from-pink-200 via-purple-200 to-sky-200 shadow-lg"></div>
+                <div class="bg-white/80 rounded-[1.75rem] p-6 shadow-inner">
+                    <h2 class="text-2xl font-black text-slate-900 mb-3">Artist Story</h2>
+                    <p class="text-stone-600 leading-relaxed">Maya painted this piece with bold colors and gentle hearts after spending time drawing with friends. She wanted to send a message of brightness and comfort to children who need extra hope.</p>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="rounded-[1.75rem] border border-slate-200 p-6 bg-gradient-to-br from-white to-purple-50">
+                    <h3 class="text-xl font-black text-slate-900 mb-3">Artwork Details</h3>
+                    <ul class="space-y-3 text-stone-600 text-sm">
+                        <li><strong>Title:</strong> Acrylic Joy</li>
+                        <li><strong>Artist:</strong> Maya, Grade 7</li>
+                        <li><strong>Medium:</strong> Acrylic paint on canvas</li>
+                        <li><strong>Purpose:</strong> Hospital room donation</li>
+                        <li><strong>Feelings:</strong> Warmth, hope, happiness</li>
+                    </ul>
+                </div>
+                <div class="rounded-[1.75rem] p-6 bg-rose-50 border border-rose-100">
+                    <h3 class="text-xl font-black text-slate-900 mb-3">Why this matters</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Art can calm, inspire, and connect. Each piece donated here is chosen to bring a smile to a child during a hard day.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="py-4 text-center glass border-t border-white/50">
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Bridge of Love Art</p>
+    </footer>
+</body>
+</html>

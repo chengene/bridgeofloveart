@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge of Love Art | Submit Art</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #fff5f7 0%, #fce7d9 15%, #e0f2fe 30%, #f0e7ff 45%, #fef3c7 60%, #ecfdf5 75%, #fef2f2 90%, #f3e8ff 100%); background-attachment: fixed; }
+        @media (min-width: 1024px) { body { overflow: hidden; height: 100vh; } }
+        .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid rgba(255,255,255,0.5); }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 700; color: #334155; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <nav class="z-50 flex justify-between items-center px-6 py-4 glass sticky top-0">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">🎨</span>
+            <a href="index.html" class="text-xl font-black text-rose-600 tracking-tighter uppercase">Bridge of Love</a>
+        </div>
+        <div class="flex space-x-4 md:space-x-8 text-[10px] font-bold uppercase tracking-widest items-center">
+            <a href="gallery.html" class="text-purple-600 px-3 py-2 rounded-lg hover:bg-purple-50 transition">Gallery</a>
+            <a href="submit.html" class="text-pink-600 px-3 py-2 rounded-lg bg-pink-50">Give Art</a>
+            <a href="request.html" class="text-cyan-600 px-3 py-2 rounded-lg hover:bg-cyan-50 transition">Get Art</a>
+            <a href="contact.html" class="text-rose-600 px-3 py-2 rounded-lg hover:bg-rose-50 transition">Contact</a>
+            <a href="index.html#about-me" class="text-orange-600 hidden sm:inline-block px-3 py-2 rounded-lg hover:bg-orange-50 transition">About Me</a>
+        </div>
+    </nav>
+    <main class="flex-grow px-6 py-8 max-w-4xl mx-auto w-full">
+        <section class="glass p-8 mb-8 text-center">
+            <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Submit Your Art</p>
+            <h1 class="mt-4 text-4xl font-black text-slate-900">Student artists can donate work here.</h1>
+            <p class="mt-4 text-stone-600">Fill out the form below to share your painting, drawing, or craft for a child’s hospital room.</p>
+        </section>
+        <section class="glass p-8 rounded-[2rem]">
+            <form class="space-y-6" action="#" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="artist-name">Artist Name</label>
+                    <input id="artist-name" name="artist-name" type="text" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Emma Chen" />
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="you@example.com" />
+                    </div>
+                    <div>
+                        <label for="grade">Grade / Age</label>
+                        <input id="grade" name="grade" type="text" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Grade 7" />
+                    </div>
+                </div>
+                <div>
+                    <label for="title">Artwork Title</label>
+                    <input id="title" name="title" type="text" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Sunshine Hearts" />
+                </div>
+                <div>
+                    <label for="description">Story Behind the Piece</label>
+                    <textarea id="description" name="description" rows="5" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Share what inspired your art..."></textarea>
+                </div>
+                <div>
+                    <label for="upload">Upload Artwork</label>
+                    <input id="upload" name="upload" type="file" accept="image/*" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" />
+                </div>
+                <button type="submit" class="w-full py-4 rounded-3xl bg-gradient-to-r from-violet-500 to-rose-500 text-white font-black uppercase tracking-[0.2em]">Share my art</button>
+                <p class="text-xs text-stone-500">By submitting, you agree that your artwork may be shared with hospital partners and posted with donor credit.</p>
+            </form>
+        </section>
+    </main>
+    <footer class="py-4 text-center glass border-t border-white/50">
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Bridge of Love Art</p>
+    </footer>
+</body>
+</html>
