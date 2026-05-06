@@ -32,29 +32,29 @@
             <div class="grid gap-8 lg:grid-cols-[2fr_1fr] items-start">
                 <div>
                     <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Art Detail View</p>
-                    <h1 class="mt-3 text-4xl font-black text-slate-900">Acrylic Joy</h1>
-                    <p class="mt-4 text-stone-600 text-sm leading-relaxed">A bright, playful painting made by Maya to remind little patients that every day can feel like a sunny day.</p>
+                    <h1 class="mt-3 text-4xl font-black text-slate-900" id="artwork-title">Loading...</h1>
+                    <p class="mt-4 text-stone-600 text-sm leading-relaxed" id="artwork-description">Loading artwork details...</p>
                 </div>
                 <a href="gallery.html" class="inline-flex items-center justify-center px-4 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 transition">Back to Gallery</a>
             </div>
         </section>
         <section class="glass p-8 rounded-[2rem] grid gap-8 lg:grid-cols-[1.6fr_1fr] items-start">
             <div class="space-y-6">
-                <div class="h-96 rounded-[2rem] bg-gradient-to-br from-pink-200 via-purple-200 to-sky-200 shadow-lg"></div>
+                <div class="h-96 rounded-[2rem] bg-gradient-to-br" id="artwork-image"></div>
                 <div class="bg-white/80 rounded-[1.75rem] p-6 shadow-inner">
                     <h2 class="text-2xl font-black text-slate-900 mb-3">Artist Story</h2>
-                    <p class="text-stone-600 leading-relaxed">Maya painted this piece with bold colors and gentle hearts after spending time drawing with friends. She wanted to send a message of brightness and comfort to children who need extra hope.</p>
+                    <p class="text-stone-600 leading-relaxed" id="artist-story">Loading artist story...</p>
+                </div>
+                <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-[1.75rem] p-6 shadow-inner border border-rose-100">
+                    <h2 class="text-2xl font-black text-slate-900 mb-3">💝 Warm Words for You</h2>
+                    <p class="text-stone-600 leading-relaxed italic" id="warm-words">Loading warm words...</p>
                 </div>
             </div>
             <div class="space-y-6">
                 <div class="rounded-[1.75rem] border border-slate-200 p-6 bg-gradient-to-br from-white to-purple-50">
                     <h3 class="text-xl font-black text-slate-900 mb-3">Artwork Details</h3>
-                    <ul class="space-y-3 text-stone-600 text-sm">
-                        <li><strong>Title:</strong> Acrylic Joy</li>
-                        <li><strong>Artist:</strong> Maya, Grade 7</li>
-                        <li><strong>Medium:</strong> Acrylic paint on canvas</li>
-                        <li><strong>Purpose:</strong> Hospital room donation</li>
-                        <li><strong>Feelings:</strong> Warmth, hope, happiness</li>
+                    <ul class="space-y-3 text-stone-600 text-sm" id="artwork-details">
+                        <li>Loading details...</li>
                     </ul>
                 </div>
                 <div class="rounded-[1.75rem] p-6 bg-rose-50 border border-rose-100">
@@ -63,6 +63,48 @@
                 </div>
             </div>
         </section>
+
+        <script>
+            async function loadArtwork() {
+                try {
+                    // Get artwork ID from URL parameters
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const artworkId = parseInt(urlParams.get('id')) || 1;
+
+                    const response = await fetch('artwork-data.json');
+                    const artworks = await response.json();
+
+                    const artwork = artworks.find(art => art.id === artworkId) || artworks[0];
+
+                    // Update page content
+                    document.getElementById('artwork-title').textContent = artwork.title;
+                    document.getElementById('artwork-description').textContent = artwork.description;
+                    document.getElementById('artist-story').textContent = artwork.description;
+                    document.getElementById('warm-words').textContent = artwork.warmWords;
+
+                    // Update artwork image with gradient
+                    const imageDiv = document.getElementById('artwork-image');
+                    imageDiv.className = `h-96 rounded-[2rem] bg-gradient-to-br ${artwork.colors}`;
+
+                    // Update details
+                    document.getElementById('artwork-details').innerHTML = `
+                        <li><strong>Title:</strong> ${artwork.title}</li>
+                        <li><strong>Artist:</strong> ${artwork.artist}, ${artwork.grade}</li>
+                        <li><strong>Medium:</strong> Original artwork</li>
+                        <li><strong>Purpose:</strong> Hospital room donation</li>
+                        <li><strong>Message:</strong> ${artwork.warmWords.substring(0, 50)}...</li>
+                    `;
+
+                } catch (error) {
+                    console.error('Error loading artwork:', error);
+                    document.getElementById('artwork-title').textContent = 'Artwork Not Found';
+                    document.getElementById('artwork-description').textContent = 'Sorry, we couldn\'t load this artwork. Please try again later.';
+                }
+            }
+
+            // Load artwork when page loads
+            loadArtwork();
+        </script>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
         <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Bridge of Love Art</p>

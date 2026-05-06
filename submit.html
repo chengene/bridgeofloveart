@@ -35,7 +35,7 @@
             <p class="mt-4 text-stone-600">Fill out the form below to share your painting, drawing, or craft for a child’s hospital room.</p>
         </section>
         <section class="glass p-8 rounded-[2rem]">
-            <form class="space-y-6" action="#" method="post" enctype="multipart/form-data">
+            <form id="artwork-form" class="space-y-6" action="#" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="artist-name">Artist Name</label>
                     <input id="artist-name" name="artist-name" type="text" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Emma Chen" />
@@ -67,10 +67,75 @@
                     <label for="upload">Upload Artwork</label>
                     <input id="upload" name="upload" type="file" accept="image/*" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" />
                 </div>
+                <div>
+                    <label for="color-theme">Color Theme (for display)</label>
+                    <select id="color-theme" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200">
+                        <option value="">Select a color theme</option>
+                        <option value="from-pink-200 via-purple-200 to-sky-200">Pink to Sky Blue</option>
+                        <option value="from-yellow-200 via-orange-200 to-pink-200">Yellow to Pink</option>
+                        <option value="from-cyan-200 via-sky-200 to-indigo-200">Cyan to Indigo</option>
+                        <option value="from-violet-200 via-fuchsia-200 to-rose-200">Violet to Rose</option>
+                        <option value="from-amber-200 via-lime-200 to-emerald-200">Amber to Emerald</option>
+                        <option value="from-lime-200 via-emerald-200 to-teal-200">Lime to Teal</option>
+                        <option value="from-rose-200 via-pink-200 to-purple-200">Rose to Purple</option>
+                        <option value="from-orange-200 via-red-200 to-pink-200">Orange to Pink</option>
+                        <option value="from-blue-200 via-cyan-200 to-teal-200">Blue to Teal</option>
+                    </select>
+                </div>
                 <button type="submit" class="w-full py-4 rounded-3xl bg-gradient-to-r from-violet-500 to-rose-500 text-white font-black uppercase tracking-[0.2em]">Share my art</button>
                 <p class="text-xs text-stone-500">By submitting, you agree that your artwork may be shared with hospital partners and posted with donor credit.</p>
             </form>
+
+            <div id="submission-result" class="mt-8 hidden">
+                <div class="bg-green-50 border border-green-200 rounded-3xl p-6">
+                    <h3 class="text-lg font-bold text-green-800 mb-3">🎨 Submission Ready!</h3>
+                    <p class="text-green-700 mb-4">Your artwork data has been prepared. Copy the JSON below and send it to the website administrator to add your artwork to the gallery:</p>
+                    <textarea id="json-output" readonly class="w-full h-48 px-4 py-3 rounded-lg border border-green-200 bg-white font-mono text-sm resize-none" placeholder="JSON data will appear here..."></textarea>
+                    <button onclick="copyToClipboard()" class="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Copy to Clipboard</button>
+                </div>
+            </div>
         </section>
+
+        <script>
+            document.getElementById('artwork-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    id: Date.now(), // Simple ID generation
+                    title: document.getElementById('title').value,
+                    artist: document.getElementById('artist-name').value,
+                    grade: document.getElementById('grade').value,
+                    description: document.getElementById('description').value,
+                    warmWords: document.getElementById('warm-words').value,
+                    image: 'placeholder.jpg', // This would be the uploaded image URL
+                    colors: document.getElementById('color-theme').value
+                };
+
+                // Show the JSON output
+                document.getElementById('json-output').value = JSON.stringify(formData, null, 2);
+                document.getElementById('submission-result').classList.remove('hidden');
+
+                // Scroll to result
+                document.getElementById('submission-result').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            function copyToClipboard() {
+                const textarea = document.getElementById('json-output');
+                textarea.select();
+                document.execCommand('copy');
+
+                // Show feedback
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('bg-green-700');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-700');
+                }, 2000);
+            }
+        </script>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
         <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Bridge of Love Art</p>
