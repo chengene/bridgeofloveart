@@ -58,10 +58,19 @@
                     <label for="description">Story Behind the Piece</label>
                     <textarea id="description" name="description" rows="5" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Share what inspired your art..."></textarea>
                 </div>
-                <div class="bg-rose-50 border border-rose-100 rounded-3xl p-5">
-                    <label for="warm-words" class="text-rose-700">Warm Words for a Child</label>
-                    <textarea id="warm-words" name="warm-words" rows="4" class="w-full mt-2 rounded-3xl border border-rose-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-200" placeholder="Write a kind note or encouragement for the child who receives this artwork..."></textarea>
-                    <p class="mt-2 text-xs text-rose-500">This message will travel with your artwork to brighten a child’s day.</p>
+                <div class="bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-200 rounded-3xl p-6 shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-2xl">💝</span>
+                        <div>
+                            <label for="warm-words" class="text-rose-700 font-bold text-lg">Warm Wishes for the Child</label>
+                            <p class="text-rose-600 text-sm mt-1">Your kind words will bring comfort and joy</p>
+                        </div>
+                    </div>
+                    <textarea id="warm-words" name="warm-words" rows="5" required class="w-full rounded-3xl border border-rose-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white/80" placeholder="Write a heartfelt message, a poem, or encouraging words for the child who will receive your artwork. What hope, love, or comfort would you like to share?"></textarea>
+                    <div class="mt-3 flex items-center gap-2 text-xs text-rose-500">
+                        <span>✨</span>
+                        <p>This message will be displayed with your artwork to brighten a child's day in the hospital.</p>
+                    </div>
                 </div>
                 <div>
                     <label for="upload">Upload Artwork</label>
