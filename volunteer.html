@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together in Color Art | Volunteer Help</title>
+    <link rel="icon" href="/assets/images/together-icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #fff5f7 0%, #fce7d9 15%, #e0f2fe 30%, #f0e7ff 45%, #fef3c7 60%, #ecfdf5 75%, #fef2f2 90%, #f3e8ff 100%); background-attachment: fixed; }
+        @media (min-width: 1024px) { body { overflow: hidden; height: 100vh; } }
+        .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-radius: 2rem; border: 1px solid rgba(255,255,255,0.5); }
+        .btn-volunteer { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <nav class="z-50 flex justify-between items-center px-6 py-4 glass sticky top-0">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">🎨</span>
+            <a href="index.html" class="text-xl font-black text-rose-600 tracking-tighter uppercase">Together in Color</a>
+        </div>
+        <div class="flex flex-wrap gap-3 md:gap-4 text-[10px] font-bold uppercase tracking-widest items-center">
+            <a href="gallery.html" class="text-purple-600 px-3 py-2 rounded-lg hover:bg-purple-50 transition">Gallery</a>
+            <a href="submit.html" class="text-pink-600 px-3 py-2 rounded-lg hover:bg-pink-50 transition">Give Art</a>
+            <a href="request.html" class="text-cyan-600 px-3 py-2 rounded-lg hover:bg-cyan-50 transition">Get Art</a>
+            <a href="volunteer.html" class="text-emerald-600 px-3 py-2 rounded-lg bg-emerald-50 transition">Volunteer</a>
+            <a href="contact.html" class="text-rose-600 px-3 py-2 rounded-lg hover:bg-rose-50 transition">Contact</a>
+            <a href="index.html#about-me" class="text-orange-600 hidden sm:inline-block px-3 py-2 rounded-lg hover:bg-orange-50 transition">About Me</a>
+        </div>
+    </nav>
+    <main class="flex-grow px-6 py-8 max-w-6xl mx-auto w-full">
+        <section class="glass p-8 mb-8 text-center">
+            <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Volunteer Help</p>
+            <h1 class="mt-4 text-4xl md:text-5xl font-black text-slate-900 leading-tight">Earn service hours while helping children heal through art.</h1>
+            <p class="mt-4 text-stone-600 text-sm md:text-base leading-relaxed">Join our team of volunteers to support art submissions, outreach, packaging, and community events.</p>
+        </section>
+        <section class="grid gap-6 lg:grid-cols-2 mb-8">
+            <div class="glass p-8 rounded-[3rem] border-b-4 border-emerald-400 bg-gradient-to-br from-emerald-50 to-lime-50">
+                <h2 class="text-xl font-black mb-3 text-slate-900">What volunteers do</h2>
+                <ul class="list-disc list-inside text-stone-600 space-y-3 text-sm">
+                    <li>Help gather and package donated artwork.</li>
+                    <li>Share our mission with schools, families, and social media.</li>
+                    <li>Assist with outreach to hospitals and community partners.</li>
+                    <li>Track volunteer hour requests and help document service.</li>
+                </ul>
+            </div>
+            <div class="glass p-8 rounded-[3rem] border-b-4 border-cyan-400 bg-gradient-to-br from-cyan-50 to-sky-50">
+                <h2 class="text-xl font-black mb-3 text-slate-900">How it works</h2>
+                <p class="text-stone-600 text-sm leading-relaxed mb-4">Fill out the volunteer request form below, and our team will review your availability and match you with the right tasks. Approved volunteers can earn school or community service hours.</p>
+                <ol class="list-decimal list-inside text-stone-600 space-y-3 text-sm">
+                    <li>Submit your request.</li>
+                    <li>Receive a volunteer assignment.</li>
+                    <li>Complete the task and log your hours.</li>
+                    <li>Get a confirmed volunteer hour record.</li>
+                </ol>
+            </div>
+        </section>
+        <section class="glass p-8 rounded-[3rem]">
+            <h2 class="text-2xl font-black text-slate-900 mb-6">Volunteer Hours Request</h2>
+            <form class="space-y-6" action="#" method="post">
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label for="name" class="block mb-2 font-semibold text-slate-700">Your Name</label>
+                        <input id="name" name="name" type="text" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200" placeholder="Avery Lee" />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-semibold text-slate-700">Email</label>
+                        <input id="email" name="email" type="email" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200" placeholder="avery@example.com" />
+                    </div>
+                </div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <label for="school" class="block mb-2 font-semibold text-slate-700">School / Organization</label>
+                        <input id="school" name="school" type="text" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200" placeholder="Lincoln High School" />
+                    </div>
+                    <div>
+                        <label for="hours" class="block mb-2 font-semibold text-slate-700">Hours Needed</label>
+                        <input id="hours" name="hours" type="number" min="1" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200" placeholder="10" />
+                    </div>
+                </div>
+                <div>
+                    <label for="roles" class="block mb-2 font-semibold text-slate-700">Preferred Volunteer Role</label>
+                    <select id="roles" name="roles" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                        <option value="">Choose a role</option>
+                        <option value="outreach">Outreach & promotion</option>
+                        <option value="packaging">Packaging art for delivery</option>
+                        <option value="events">Event support</option>
+                        <option value="virtual">Virtual support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="notes" class="block mb-2 font-semibold text-slate-700">Notes / Availability</label>
+                    <textarea id="notes" name="notes" rows="5" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-200" placeholder="Tell us what times you are available, what you enjoy helping with, or any details we should know."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-3xl bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-black uppercase tracking-[0.2em] btn-volunteer">Request Volunteer Support</button>
+                <p class="text-xs text-stone-500">A team member will review your request and follow up with next steps for volunteer hour approval.</p>
+            </form>
+        </section>
+    </main>
+    <footer class="py-4 text-center glass border-t border-white/50">
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Together in Color Art</p>
+    </footer>
+</body>
+</html>
