@@ -1,0 +1,62 @@
+{
+  "artRequests": [
+    {
+      "id": 1,
+      "title": "Children's Ward Mural",
+      "hospital": "Sunrise Children’s Hospital",
+      "roomType": "Pediatric oncology",
+      "description": "A warm mural with friendly animals, rainbows, and soft pastels to comfort young patients.",
+      "timeline": "Within 4 weeks"
+    },
+    {
+      "id": 2,
+      "title": "Waiting Area Brightness",
+      "hospital": "Maplewood Clinic",
+      "roomType": "General pediatric waiting room",
+      "description": "A cheerful painting to create a calm, hopeful atmosphere for families before appointments.",
+      "timeline": "2-3 weeks"
+    },
+    {
+      "id": 3,
+      "title": "Therapy Room Comfort",
+      "hospital": "Lakeside Children’s Center",
+      "roomType": "Pediatric therapy room",
+      "description": "Soft floral and landscape imagery to help children feel peaceful while they receive care.",
+      "timeline": "Flexible"
+    }
+  ],
+  "volunteerRequests": [
+    {
+      "id": 1,
+      "title": "Art Packaging Help",
+      "contact": "Avery Lee",
+      "organization": "Lincoln High School",
+      "description": "Need help packaging donated artwork for delivery to hospitals and school outreach events.",
+      "hoursNeeded": "10 hours"
+    },
+    {
+      "id": 2,
+      "title": "Event Outreach Support",
+      "contact": "Maya Patel",
+      "organization": "Community Arts Network",
+      "description": "Looking for volunteers to support promotion and setup for an art donation showcase.",
+      "hoursNeeded": "12 hours"
+    }
+  ],
+  "contactMessages": [
+    {
+      "id": 1,
+      "name": "Jordan Kim",
+      "email": "jordan@example.com",
+      "subject": "Art lesson collaboration",
+      "message": "Hello, I would love to talk about working together on an art mentorship program for children."
+    },
+    {
+      "id": 2,
+      "name": "Sofia Chen",
+      "email": "sofia@example.com",
+      "subject": "Commission question",
+      "message": "Hi, can you create a custom painting for a pediatric recovery room?"
+    }
+  ]
+}

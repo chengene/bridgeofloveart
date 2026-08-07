@@ -65,10 +65,75 @@
                 <button type="submit" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 to-sky-500 text-white font-black uppercase tracking-[0.2em]">Request artwork</button>
                 <p class="text-xs text-stone-500">Your request helps us create the right art for the children in need.</p>
             </form>
+            <div id="request-result" class="mt-8 hidden">
+                <div class="bg-sky-50 border border-sky-200 rounded-3xl p-6">
+                    <h3 class="text-lg font-bold text-sky-900 mb-3">✅ Request stored locally</h3>
+                    <p class="text-sky-700 mb-4">Your request is saved in your browser and will appear on the requests overview page.</p>
+                    <textarea id="request-json-output" readonly class="w-full h-48 px-4 py-3 rounded-3xl border border-sky-200 bg-white font-mono text-sm resize-none"></textarea>
+                    <div class="mt-4 flex flex-wrap gap-3">
+                        <button id="download-request-json" class="px-4 py-2 bg-sky-600 text-white rounded-3xl hover:bg-sky-700 transition">Download updated JSON</button>
+                        <button id="copy-request-json" class="px-4 py-2 bg-white border border-sky-200 text-sky-700 rounded-3xl hover:bg-sky-50 transition">Copy JSON</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
         <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Together in Color Art</p>
     </footer>
+    <script>
+        const artStorageKey = 'tocArtRequests';
+
+        function downloadJson(filename, content) {
+            const blob = new Blob([content], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        async function getCombinedRequestsData() {
+            const response = await fetch('requests-data.json');
+            const baseData = await response.json();
+            const localArt = JSON.parse(localStorage.getItem(artStorageKey) || '[]');
+            return {
+                artRequests: [...(baseData.artRequests || []), ...localArt],
+                volunteerRequests: baseData.volunteerRequests || [],
+                contactMessages: baseData.contactMessages || []
+            };
+        }
+
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const requestData = {
+                id: Date.now(),
+                title: document.getElementById('needs').value.substring(0, 50) || 'Art request',
+                hospital: document.getElementById('contact-name').value || 'Unknown',
+                roomType: document.getElementById('timeline').value || 'General',
+                description: document.getElementById('needs').value,
+                timeline: document.getElementById('timeline').value || 'Flexible'
+            };
+
+            const saved = JSON.parse(localStorage.getItem(artStorageKey) || '[]');
+            saved.push(requestData);
+            localStorage.setItem(artStorageKey, JSON.stringify(saved));
+
+            const combined = await getCombinedRequestsData();
+            const output = JSON.stringify(combined, null, 2);
+            document.getElementById('request-json-output').value = output;
+            document.getElementById('request-result').classList.remove('hidden');
+
+            document.getElementById('download-request-json').onclick = () => downloadJson('requests-data-updated.json', output);
+            document.getElementById('copy-request-json').onclick = () => {
+                document.getElementById('request-json-output').select();
+                document.execCommand('copy');
+            };
+        });
+    </script>
 </body>
 </html>

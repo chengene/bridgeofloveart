@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together in Color Art | Requests Overview</title>
+    <link rel="icon" href="/assets/images/together-icon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce7d9 15%, #e0f2fe 30%, #f0e7ff 45%, #fef3c7 60%, #ecfdf5 75%, #fef2f2 90%, #f3e8ff 100%);
+            background-attachment: fixed;
+            color: #1f2937;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 2rem;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        }
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+        .section-title {
+            font-size: clamp(1.75rem, 2.5vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.04em;
+        }
+        .section-text {
+            color: #475569;
+            line-height: 1.8;
+            max-width: 760px;
+            margin-bottom: 2rem;
+        }
+        .request-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .request-card {
+            padding: 28px;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+        }
+        .request-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+        }
+        .request-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 0.9rem;
+        }
+        .request-detail {
+            color: #334155;
+            line-height: 1.75;
+            margin-bottom: 0.85rem;
+        }
+        .summary-pill {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.12);
+            color: #1d4ed8;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .section-note {
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.95rem;
+            max-width: 760px;
+        }
+        @media (max-width: 640px) {
+            .page-wrap { padding: 24px 14px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-wrap">
+        <section class="glass p-10 mb-10">
+            <h1 class="section-title">Requests Overview</h1>
+            <p class="section-text">This page shows the current art requests and volunteer requests in one place. It is intentionally not linked from the main menu, so you can view the request lists directly without navigation links.</p>
+            <p class="section-note">Note: This page is a static summary view. If you want these lists to update automatically from real submissions, I can help add a data source or backend later.</p>
+        </section>
+
+        <section class="glass p-10 mb-10">
+            <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p class="section-label request-label">Art Requests</p>
+                    <h2 class="section-title">Pending artwork requests</h2>
+                </div>
+                <span class="summary-pill">3 Open Requests</span>
+            </div>
+            <div class="request-grid mt-8" id="art-request-list">
+                <p class="request-detail">Loading art requests…</p>
+            </div>
+        </section>
+
+        <section class="glass p-10 mb-10">
+            <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p class="section-label request-label">Volunteer Requests</p>
+                    <h2 class="section-title">Volunteer support requests</h2>
+                </div>
+                <span class="summary-pill">2 Open Requests</span>
+            </div>
+            <div class="request-grid mt-8" id="volunteer-request-list">
+                <p class="request-detail">Loading volunteer requests…</p>
+            </div>
+        </section>
+
+        <section class="glass p-10 mb-10">
+            <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p class="section-label request-label">Contact Messages</p>
+                    <h2 class="section-title">Messages submitted through contact form</h2>
+                </div>
+                <span class="summary-pill" id="contact-count">0 Messages</span>
+            </div>
+            <div class="request-grid mt-8" id="contact-message-list">
+                <p class="request-detail">Loading contact messages…</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        async function loadRequests() {
+            try {
+                const response = await fetch('requests-data.json');
+                const data = await response.json();
+
+                const storedArt = JSON.parse(localStorage.getItem('tocArtRequests') || '[]');
+                const storedVolunteer = JSON.parse(localStorage.getItem('tocVolunteerRequests') || '[]');
+                const storedContact = JSON.parse(localStorage.getItem('tocContactMessages') || '[]');
+
+                const artRequests = [...(data.artRequests || []), ...storedArt];
+                const volunteerRequests = [...(data.volunteerRequests || []), ...storedVolunteer];
+                const contactMessages = [...(data.contactMessages || []), ...storedContact];
+
+                const artContainer = document.getElementById('art-request-list');
+                const volunteerContainer = document.getElementById('volunteer-request-list');
+                const contactContainer = document.getElementById('contact-message-list');
+
+                artContainer.innerHTML = '';
+                volunteerContainer.innerHTML = '';
+                contactContainer.innerHTML = '';
+
+                artRequests.forEach(item => {
+                    const card = document.createElement('article');
+                    card.className = 'request-card';
+                    card.innerHTML = `
+                        <h3>${item.title}</h3>
+                        <p class="request-detail"><strong>Hospital:</strong> ${item.hospital}</p>
+                        <p class="request-detail"><strong>Room type:</strong> ${item.roomType}</p>
+                        <p class="request-detail">${item.description}</p>
+                        <p class="request-detail"><strong>Timeline:</strong> ${item.timeline}</p>
+                    `;
+                    artContainer.appendChild(card);
+                });
+
+                volunteerRequests.forEach(item => {
+                    const card = document.createElement('article');
+                    card.className = 'request-card';
+                    card.innerHTML = `
+                        <h3>${item.title}</h3>
+                        <p class="request-detail"><strong>Contact:</strong> ${item.contact}</p>
+                        <p class="request-detail"><strong>Organization:</strong> ${item.organization}</p>
+                        <p class="request-detail">${item.description}</p>
+                        <p class="request-detail"><strong>Hours needed:</strong> ${item.hoursNeeded}</p>
+                    `;
+                    volunteerContainer.appendChild(card);
+                });
+
+                contactMessages.forEach(item => {
+                    const card = document.createElement('article');
+                    card.className = 'request-card';
+                    card.innerHTML = `
+                        <h3>${item.subject}</h3>
+                        <p class="request-detail"><strong>Name:</strong> ${item.name}</p>
+                        <p class="request-detail"><strong>Email:</strong> ${item.email}</p>
+                        <p class="request-detail"><strong>Purpose:</strong> ${item.purpose}</p>
+                        <p class="request-detail">${item.message}</p>
+                    `;
+                    contactContainer.appendChild(card);
+                });
+
+                document.getElementById('contact-count').textContent = `${contactMessages.length} Messages`;
+            } catch (error) {
+                console.error('Error loading requests:', error);
+                document.getElementById('art-request-list').innerHTML = '<p class="request-detail">Unable to load art requests.</p>';
+                document.getElementById('volunteer-request-list').innerHTML = '<p class="request-detail">Unable to load volunteer requests.</p>';
+                document.getElementById('contact-message-list').innerHTML = '<p class="request-detail">Unable to load contact messages.</p>';
+            }
+        }
+
+        loadRequests();
+    </script>
+</body>
+</html>
+    <script>
+        function createRequestCard(data, type) {
+            const card = document.createElement('article');
+            card.className = 'request-card';
+
+            const title = document.createElement('h3');
+            title.textContent = data.title;
+            card.appendChild(title);
+
+            if (type === 'art') {
+                card.innerHTML += `
+                    <p class="request-detail"><strong>Hospital:</strong> ${data.hospital}</p>
+                    <p class="request-detail"><strong>Room type:</strong> ${data.roomType}</p>
+                    <p class="request-detail">${data.description}</p>
+                    <p class="request-detail"><strong>Timeline:</strong> ${data.timeline}</p>
+                `;
+            } else if (type === 'volunteer') {
+                card.innerHTML += `
+                    <p class="request-detail"><strong>Contact:</strong> ${data.contact}</p>
+                    <p class="request-detail"><strong>Organization:</strong> ${data.organization}</p>
+                    <p class="request-detail">${data.description}</p>
+                    <p class="request-detail"><strong>Hours needed:</strong> ${data.hoursNeeded}</p>
+                `;
+            }
+            return card;
+        }
+
+        async function loadRequests() {
+            try {
+                const response = await fetch('requests-data.json');
+                const data = await response.json();
+
+                const artContainer = document.getElementById('art-request-list');
+                const volunteerContainer = document.getElementById('volunteer-request-list');
+
+                artContainer.innerHTML = '';
+                volunteerContainer.innerHTML = '';
+
+                if (data.artRequests && data.artRequests.length > 0) {
+                    data.artRequests.forEach(item => artContainer.appendChild(createRequestCard(item, 'art')));
+                } else {
+                    artContainer.innerHTML = '<p class="request-detail">No art requests available.</p>';
+                }
+
+                if (data.volunteerRequests && data.volunteerRequests.length > 0) {
+                    data.volunteerRequests.forEach(item => volunteerContainer.appendChild(createRequestCard(item, 'volunteer')));
+                } else {
+                    volunteerContainer.innerHTML = '<p class="request-detail">No volunteer requests available.</p>';
+                }
+            } catch (error) {
+                console.error('Failed to load requests data:', error);
+                document.getElementById('art-request-list').innerHTML = '<p class="request-detail">Unable to load art requests.</p>';
+                document.getElementById('volunteer-request-list').innerHTML = '<p class="request-detail">Unable to load volunteer requests.</p>';
+            }
+        }
+
+        loadRequests();
+    </script>
