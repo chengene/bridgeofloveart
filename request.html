@@ -31,15 +31,12 @@
     <main class="flex-grow px-6 py-8 max-w-4xl mx-auto w-full">
         <section class="glass p-8 mb-8 text-center">
             <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Request Art</p>
-            <h1 class="mt-4 text-4xl font-black text-slate-900">Hospitals can request a piece for a pediatric room.</h1>
+            <h1 class="mt-4 text-4xl font-black text-slate-900">Request a piece for a child in need.</h1>
             <p class="mt-4 text-stone-600">Complete this request form and our team will match you with artwork that brings comfort and color.</p>
         </section>
         <section class="glass p-8 rounded-[2rem]">
             <form class="space-y-6" action="#" method="post">
-                <div>
-                    <label for="hospital-name">Hospital / Department</label>
-                    <input id="hospital-name" name="hospital-name" type="text" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-200" placeholder="Sunrise Children’s Hospital" />
-                </div>
+                
                 <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label for="contact-name">Contact Name</label>
@@ -50,10 +47,7 @@
                         <input id="email" name="email" type="email" required class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-200" placeholder="contact@hospital.org" />
                     </div>
                 </div>
-                <div>
-                    <label for="room-type">Room or Department Type</label>
-                    <input id="room-type" name="room-type" type="text" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-200" placeholder="Pediatric oncology" />
-                </div>
+                
                 <div>
                     <label for="needs">Special Request / Needs</label>
                     <textarea id="needs" name="needs" rows="5" class="w-full rounded-3xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-200" placeholder="What kind of atmosphere would help the children most?"></textarea>
@@ -69,7 +63,7 @@
                     </div>
                 </div>
                 <button type="submit" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 to-sky-500 text-white font-black uppercase tracking-[0.2em]">Request artwork</button>
-                <p class="text-xs text-stone-500">Your request helps us create the right art for the children you serve.</p>
+                <p class="text-xs text-stone-500">Your request helps us create the right art for the children in need.</p>
             </form>
         </section>
     </main>
