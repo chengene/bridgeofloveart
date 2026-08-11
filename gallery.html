@@ -45,10 +45,12 @@
                 try {
                     const response = await fetch('artwork-data.json');
                     const artworks = await response.json();
+                    const storedArtworks = JSON.parse(localStorage.getItem('tocArtworkSubmissions') || '[]');
+                    const combinedArtworks = [...artworks, ...storedArtworks];
 
                     const galleryGrid = document.getElementById('gallery-grid');
 
-                    artworks.forEach(artwork => {
+                    combinedArtworks.forEach(artwork => {
                         const card = document.createElement('a');
                         card.href = `display.html?id=${artwork.id}`;
                         card.className = 'card p-6 block hover:shadow-xl transition';

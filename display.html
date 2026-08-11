@@ -73,8 +73,10 @@
 
                     const response = await fetch('artwork-data.json');
                     const artworks = await response.json();
+                    const storedArtworks = JSON.parse(localStorage.getItem('tocArtworkSubmissions') || '[]');
+                    const combinedArtworks = [...artworks, ...storedArtworks];
 
-                    const artwork = artworks.find(art => art.id === artworkId) || artworks[0];
+                    const artwork = combinedArtworks.find(art => art.id === artworkId) || combinedArtworks[0];
 
                     // Update page content
                     document.getElementById('artwork-title').textContent = artwork.title;

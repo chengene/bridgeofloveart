@@ -101,30 +101,65 @@
                     <p class="text-green-700 mb-4">Your artwork data has been prepared. Copy the JSON below and send it to the website administrator to add your artwork to the gallery:</p>
                     <textarea id="json-output" readonly class="w-full h-48 px-4 py-3 rounded-lg border border-green-200 bg-white font-mono text-sm resize-none" placeholder="JSON data will appear here..."></textarea>
                     <button onclick="copyToClipboard()" class="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Copy to Clipboard</button>
+                    <button id="download-artwork-json" class="mt-3 px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition">Download artwork JSON</button>
                 </div>
             </div>
         </section>
 
         <script>
-            document.getElementById('artwork-form').addEventListener('submit', function(e) {
+            const artworkStorageKey = 'tocArtworkSubmissions';
+
+            function getStoredArtworks() {
+                return JSON.parse(localStorage.getItem(artworkStorageKey) || '[]');
+            }
+
+            function saveArtworkSubmission(submission) {
+                const saved = getStoredArtworks();
+                saved.push(submission);
+                localStorage.setItem(artworkStorageKey, JSON.stringify(saved));
+            }
+
+            function downloadJson(filename, content) {
+                const blob = new Blob([content], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            async function getCombinedArtworkData() {
+                const response = await fetch('artwork-data.json');
+                const artworks = await response.json();
+                const stored = getStoredArtworks();
+                return [...artworks, ...stored];
+            }
+
+            document.getElementById('artwork-form').addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                const formData = {
-                    id: Date.now(), // Simple ID generation
+                const artworkData = {
+                    id: Date.now(),
                     title: document.getElementById('title').value,
                     artist: document.getElementById('artist-name').value,
                     grade: document.getElementById('grade').value,
                     description: document.getElementById('description').value,
                     warmWords: document.getElementById('warm-words').value,
-                    image: 'placeholder.jpg', // This would be the uploaded image URL
+                    image: 'https://via.placeholder.com/800x600?text=Submitted+Artwork',
                     colors: document.getElementById('color-theme').value
                 };
 
-                // Show the JSON output
-                document.getElementById('json-output').value = JSON.stringify(formData, null, 2);
-                document.getElementById('submission-result').classList.remove('hidden');
+                saveArtworkSubmission(artworkData);
 
-                // Scroll to result
+                const combined = await getCombinedArtworkData();
+                const output = JSON.stringify(combined, null, 2);
+                document.getElementById('json-output').value = output;
+                document.getElementById('submission-result').classList.remove('hidden');
+                document.getElementById('download-artwork-json').onclick = () => downloadJson('artwork-data-updated.json', output);
+
                 document.getElementById('submission-result').scrollIntoView({ behavior: 'smooth' });
             });
 
@@ -133,7 +168,6 @@
                 textarea.select();
                 document.execCommand('copy');
 
-                // Show feedback
                 const button = event.target;
                 const originalText = button.textContent;
                 button.textContent = 'Copied!';
