@@ -34,6 +34,7 @@
                 <p class="text-sm uppercase tracking-[0.4em] text-stone-400">Art Gallery</p>
                 <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mt-4">Browse the paintings that bring color to children in need.</h1>
                 <p class="mt-4 text-stone-600 text-sm md:text-base leading-relaxed">Each artwork here was donated by young artists and is ready to create joy for a child in need.</p>
+                <p id="gallery-note" class="mt-4 text-stone-500 text-sm"></p>
             </div>
         </section>
         <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="gallery-grid">
@@ -45,21 +46,32 @@
                 try {
                     const response = await fetch('artwork-data.json');
                     const artworks = await response.json();
-                    const storedArtworks = JSON.parse(localStorage.getItem('tocArtworkSubmissions') || '[]');
-                    const combinedArtworks = [...artworks, ...storedArtworks];
-
                     const galleryGrid = document.getElementById('gallery-grid');
+                    const galleryNote = document.getElementById('gallery-note');
 
-                    combinedArtworks.forEach(artwork => {
+                    const totalCount = artworks.length;
+                    galleryNote.textContent = `Showing ${totalCount} artworks from artwork-data.json.`;
+
+                    artworks.forEach(artwork => {
                         const card = document.createElement('a');
                         card.href = `display.html?id=${artwork.id}`;
                         card.className = 'card p-6 block hover:shadow-xl transition';
+
+                        const imageHtml = artwork.image
+                            ? `<img src="${artwork.image}" alt="${artwork.title}" class="h-48 w-full object-cover" />`
+                            : `<div class="h-48 w-full rounded-3xl bg-slate-100 flex items-center justify-center text-sm text-slate-500">No image available</div>`;
+
+                        const description = artwork.description ? artwork.description.substring(0, 90).trim() : 'No description available.';
+
                         card.innerHTML = `
-                            <div class="h-48 rounded-3xl bg-gradient-to-br ${artwork.colors}"></div>
+                            <div class="overflow-hidden rounded-3xl">
+                                ${imageHtml}
+                            </div>
                             <div class="mt-5">
                                 <p class="text-xs uppercase tracking-[0.4em] text-rose-500 font-bold">${artwork.title}</p>
                                 <h2 class="mt-3 text-xl font-black text-slate-900">${artwork.title}</h2>
                                 <p class="mt-2 text-stone-600 text-sm">By ${artwork.artist}, ${artwork.grade} • Donated with love</p>
+                                <p class="mt-3 text-stone-500 text-sm leading-relaxed">${description}${description.length < artwork.description?.length ? '...' : ''}</p>
                             </div>
                         `;
                         galleryGrid.appendChild(card);
@@ -80,7 +92,7 @@
         </script>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
-        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Together in Color Art</p>
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2023 Together in Color Art</p>
     </footer>
 </body>
 </html>

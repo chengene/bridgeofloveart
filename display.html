@@ -40,7 +40,9 @@
         </section>
         <section class="glass p-8 rounded-[2rem] grid gap-8 lg:grid-cols-[1.6fr_1fr] items-start">
             <div class="space-y-6">
-                <div class="h-96 rounded-[2rem] bg-gradient-to-br" id="artwork-image"></div>
+                <div class="overflow-hidden rounded-[2rem] bg-slate-100 shadow-inner">
+                    <img id="artwork-image" class="h-96 w-full object-cover" alt="Artwork image" />
+                </div>
                 <div class="bg-white/80 rounded-[1.75rem] p-6 shadow-inner">
                     <h2 class="text-2xl font-black text-slate-900 mb-3">Artist Story</h2>
                     <p class="text-stone-600 leading-relaxed" id="artist-story">Loading artist story...</p>
@@ -84,9 +86,17 @@
                     document.getElementById('artist-story').textContent = artwork.description;
                     document.getElementById('warm-words').textContent = artwork.warmWords;
 
-                    // Update artwork image with gradient
+                    // Update artwork image element
                     const imageDiv = document.getElementById('artwork-image');
-                    imageDiv.className = `h-96 rounded-[2rem] bg-gradient-to-br ${artwork.colors}`;
+                    if (artwork.image) {
+                        imageDiv.src = artwork.image;
+                        imageDiv.alt = artwork.title;
+                        imageDiv.classList.remove('hidden');
+                    } else {
+                        imageDiv.src = '';
+                        imageDiv.alt = 'No artwork image available';
+                        imageDiv.classList.add('hidden');
+                    }
 
                     // Update details
                     document.getElementById('artwork-details').innerHTML = `
@@ -109,7 +119,7 @@
         </script>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
-        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Together in Color Art</p>
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2023 Together in Color Art</p>
     </footer>
 </body>
 </html>

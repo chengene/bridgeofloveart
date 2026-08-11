@@ -1,62 +1,64 @@
 [
   {
     "id": 1,
+    "title": "Warm Embrace",
+    "artist": "Emma Chen",
+    "grade": "Grade 6",
+    "description": "Mixed-media painting showing a tender, comforting embrace. Bold dark tones and warm orange, peach, and gray brushstrokes create a feeling of closeness, care, and protection.",
+    "warmWords": "Sometimes the biggest comfort comes from simply being held and knowing you are not alone. I hope this painting reminds you that you are cared for, loved, and surrounded by warmth. Keep going, keep believing, and remember that brighter days are always ahead.",
+    "image": "assets/images/warm.jpeg",
+    "colors": "from-lime-200 via-emerald-200 to-teal-200"
+  },
+  {
+    "id": 2,
     "title": "Sunshine Hearts",
     "artist": "Maya",
     "grade": "Grade 7",
     "description": "A bright, playful painting made by Maya to remind little patients that every day can feel like a sunny day.",
     "warmWords": "Hello! I painted this for you because I know sometimes days can feel cloudy, but remember that sunshine is always there waiting to peek through. You're brave and strong, and I hope this painting brings you some of that sunshine feeling!",
-    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center",
+    "image": "assets/images/sunshine.png",
     "colors": "from-pink-200 via-purple-200 to-sky-200"
   },
+
   {
-    "id": 2,
+    "id": 3,
+    "title": "Sparkle Eyes",
+    "artist": "Emma Chen",
+    "grade": "Grade 6",
+    "description": "A sweet and playful painting of a bright-eyed face, filled with colorful details, rosy cheeks, and sparkling stars that bring a feeling of joy and wonder",
+    "warmWords": "I painted these sparkling eyes to remind you that there is always something beautiful to look forward to! Even on hard days, your smile and your courage can shine like little stars. Keep being brave, keep dreaming, and never forget how special you are!",
+    "image": "assets/images/Sparkeyes.jpeg",
+    "colors": "from-blue-200 via-cyan-200 to-teal-200"
+  },
+
+  {
+    "id": 4,
     "title": "Dream Garden",
     "artist": "Leo",
     "grade": "Grade 8",
     "description": "A watercolor piece inspired by peaceful gardens and happy memories.",
     "warmWords": "I created this garden just for you! Gardens are magical places where flowers grow and dreams come true. I hope this painting helps you feel peaceful and happy, like you're in your own special garden full of love.",
-    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center",
+    "image": "assets/images/dream.png",
     "colors": "from-yellow-200 via-orange-200 to-pink-200"
   },
-  {
-    "id": 3,
+    {
+    "id": 5,
+    "title": "Bow of Love",
+    "artist": "Emma Chen",
+    "grade": "Grade 6",
+    "description": "A cute and cheerful painting featuring a sweet character surrounded by bright red bows and tiny hearts, celebrating happiness, friendship, and love.",
+    "warmWords": "I filled this painting with little hearts and bows just for you! Each heart is a reminder that you are surrounded by love and people who care about you. Keep smiling, stay strong, and remember that you make the world a brighter and happier place!",
+    "image": "assets/images/Bowoflove.jpg",
+    "colors": "from-yellow-200 via-orange-200 to-pink-200"
+  },
+    {
+    "id": 6,
     "title": "Star Wishes",
     "artist": "Sara",
-    "grade": "Grade 6",
+    "grade": "Grade 5",
     "description": "A dreamy night sky filled with stars and wishes for healing.",
     "warmWords": "Look up at the stars and make a wish! I painted this sky full of stars because I believe in wishes coming true. You're a star too - bright, beautiful, and full of magic. Keep shining!",
-    "image": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=300&fit=crop&crop=center",
+    "image": "assets/images/star.png",
     "colors": "from-cyan-200 via-sky-200 to-indigo-200"
-  },
-  {
-    "id": 4,
-    "title": "Love Waves",
-    "artist": "Amina",
-    "grade": "Grade 9",
-    "description": "Flowing waves of color representing love and healing energy.",
-    "warmWords": "These waves are made of love and healing energy! Just like the ocean waves that keep moving and changing, you have so much strength inside you. Let these colors remind you that love surrounds you always.",
-    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&h=300&fit=crop&crop=center",
-    "colors": "from-violet-200 via-fuchsia-200 to-rose-200"
-  },
-  {
-    "id": 5,
-    "title": "Rainbow Hugs",
-    "artist": "Noah",
-    "grade": "Grade 5",
-    "description": "A colorful rainbow made with crayons, full of hugs and hope.",
-    "warmWords": "Rainbows appear after rain, and they remind us that good things come after tough times. This rainbow is giving you a big hug! You're colorful, you're special, and you're loved. Keep being your amazing self!",
-    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&crop=center",
-    "colors": "from-amber-200 via-lime-200 to-emerald-200"
-  },
-  {
-    "id": 6,
-    "title": "Hope Lights",
-    "artist": "Amara",
-    "grade": "Grade 8",
-    "description": "Soft lights and gentle colors bringing calm and hope.",
-    "warmWords": "These lights are like little beacons of hope shining just for you! Even on the darkest days, there's always a light somewhere. You're that light for so many people. Keep glowing and know that you're never alone.",
-    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center",
-    "colors": "from-lime-200 via-emerald-200 to-teal-200"
   }
 ]

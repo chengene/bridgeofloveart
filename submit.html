@@ -98,9 +98,9 @@
             <div id="submission-result" class="mt-8 hidden">
                 <div class="bg-green-50 border border-green-200 rounded-3xl p-6">
                     <h3 class="text-lg font-bold text-green-800 mb-3">🎨 Submission Ready!</h3>
-                    <p class="text-green-700 mb-4">Your artwork data has been prepared. Copy the JSON below and send it to the website administrator to add your artwork to the gallery:</p>
+                        <p class="text-green-700 mb-4">Your artwork data has been prepared. Copy or download the JSON below, then send it to the website administrator or save the file and image manually under <code>assets/images/</code>.</p>
                     <textarea id="json-output" readonly class="w-full h-48 px-4 py-3 rounded-lg border border-green-200 bg-white font-mono text-sm resize-none" placeholder="JSON data will appear here..."></textarea>
-                    <button onclick="copyToClipboard()" class="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Copy to Clipboard</button>
+                    <button onclick="copyToClipboard(event)" class="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">Copy to Clipboard</button>
                     <button id="download-artwork-json" class="mt-3 px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition">Download artwork JSON</button>
                 </div>
             </div>
@@ -141,6 +141,10 @@
             document.getElementById('artwork-form').addEventListener('submit', async function(e) {
                 e.preventDefault();
 
+                const uploadInput = document.getElementById('upload');
+                const artworkFile = uploadInput.files[0];
+                const imagePath = artworkFile ? `assets/images/${artworkFile.name}` : '';
+
                 const artworkData = {
                     id: Date.now(),
                     title: document.getElementById('title').value,
@@ -148,7 +152,7 @@
                     grade: document.getElementById('grade').value,
                     description: document.getElementById('description').value,
                     warmWords: document.getElementById('warm-words').value,
-                    image: 'https://via.placeholder.com/800x600?text=Submitted+Artwork',
+                    image: imagePath,
                     colors: document.getElementById('color-theme').value
                 };
 
@@ -163,7 +167,7 @@
                 document.getElementById('submission-result').scrollIntoView({ behavior: 'smooth' });
             });
 
-            function copyToClipboard() {
+            function copyToClipboard(event) {
                 const textarea = document.getElementById('json-output');
                 textarea.select();
                 document.execCommand('copy');
@@ -181,7 +185,7 @@
         </script>
     </main>
     <footer class="py-4 text-center glass border-t border-white/50">
-        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2026 Together in Color Art</p>
+        <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.4em]">&copy; 2023 Together in Color Art</p>
     </footer>
 </body>
 </html>
