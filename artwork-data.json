@@ -6,7 +6,7 @@
     "grade": "Grade 6",
     "description": "Mixed-media painting showing a tender, comforting embrace. Bold dark tones and warm orange, peach, and gray brushstrokes create a feeling of closeness, care, and protection.",
     "warmWords": "Sometimes the biggest comfort comes from simply being held and knowing you are not alone. I hope this painting reminds you that you are cared for, loved, and surrounded by warmth. Keep going, keep believing, and remember that brighter days are always ahead.",
-    "image": "assets/images/warm.jpeg",
+    "image": "assets/images/warm.jpg",
     "colors": "from-lime-200 via-emerald-200 to-teal-200"
   },
   {
@@ -27,7 +27,7 @@
     "grade": "Grade 6",
     "description": "A sweet and playful painting of a bright-eyed face, filled with colorful details, rosy cheeks, and sparkling stars that bring a feeling of joy and wonder",
     "warmWords": "I painted these sparkling eyes to remind you that there is always something beautiful to look forward to! Even on hard days, your smile and your courage can shine like little stars. Keep being brave, keep dreaming, and never forget how special you are!",
-    "image": "assets/images/Sparkeyes.jpeg",
+    "image": "assets/images/Sparkeyes.jpg",
     "colors": "from-blue-200 via-cyan-200 to-teal-200"
   },
 
